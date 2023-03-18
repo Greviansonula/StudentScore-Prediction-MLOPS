@@ -1,0 +1,12 @@
+# /home/ubuntu/StudentScore-Prediction-MLOPS
+[Unit]
+Description=Gunicorn instance for StudentScores application
+After=network.target
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/StudentScore-Prediction-MLOPS
+ExecStart=/home/ubuntu/StudentScore-Prediction-MLOPS/venv/gunicorn -b localhost:8000 app:app
+Restart=always
+[Install]
+WantedBy=multi-user.target
